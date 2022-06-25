@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row text-center">
+        <h2>Listado de productos</h2>
+    </div>
+    <div class="row mt-3">
+        <div class="col col-lg-8 offset-lg-2">
+            <% if (productList) { %> 
+                <table class="table align-middle mt-3">
+                    <thead>
+                        <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th class="text-end">Foto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% productList.forEach(product => { %>
+                            <tr>
+                                <td><%= product.name %></td>
+                                <td>$<%= product.price %></td>
+                                <td><img class="float-end" src=<%= product.thumbnail %> alt=""></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div class="alert alert-info text-center">No hay productos</div>
+            <% } %>
+        </div>
+    </div>
+</div>
